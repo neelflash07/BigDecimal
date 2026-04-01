@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-tertiary: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --accent-primary: #0f172a;
+  --accent-glow: rgba(15, 23, 42, 0.1);
+  --success-color: #059669;
+  --warning-color: #d97706;
+  --danger-color: #ef4444;
+  --border-color: #e5e7eb;
+  --bubble-ai: #f8fafc;
+  --bubble-user: #0f172a;
+  --bubble-user-text: #ffffff;
+  --chip-bg: #f1f5f9;
+  --chip-text: #334155;
+  --bottom-nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+body.dark {
+  --bg-color: #030712;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --accent-primary: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.2);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --border-color: #1f2937;
+  --bubble-ai: #111827;
+  --bubble-user: #10b981;
+  --bubble-user-text: #030712;
+  --chip-bg: #1f2937;
+  --chip-text: #e5e7eb;
+  --bottom-nav-bg: rgba(3, 7, 18, 0.9);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  overflow-x: hidden;
+}
+
+body.dark {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

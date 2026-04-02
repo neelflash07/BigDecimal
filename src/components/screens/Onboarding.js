@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Header from '../components/Header';
+import Header from '../Header';
 import { Target } from 'lucide-react';
 
 export default function Onboarding({ onLogin }) {
@@ -14,26 +14,26 @@ export default function Onboarding({ onLogin }) {
         <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '1.1rem', lineHeight: '1.5' }}>
           We don’t tell you what to buy. We help you understand what you are looking at.
         </p>
-        
+
         <div style={{ width: '100%', maxWidth: '320px' }}>
-          <input 
+          <input
             type="tel"
             placeholder="Enter Mobile Number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            style={{ 
-              width: '100%', 
-              padding: '16px', 
-              borderRadius: '12px', 
-              border: '1px solid var(--border-color)', 
-              backgroundColor: 'var(--bg-secondary)', 
+            style={{
+              width: '100%',
+              padding: '16px',
+              borderRadius: '12px',
+              border: '1px solid var(--border-color)',
+              backgroundColor: 'var(--bg-secondary)',
               color: 'var(--text-primary)',
               fontSize: '1rem',
               marginBottom: '16px',
               outline: 'none'
             }}
           />
-          <button 
+          <button
             onClick={() => onLogin(phone)}
             style={{
               width: '100%',

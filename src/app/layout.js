@@ -1,4 +1,4 @@
-import { ThemeProvider } from '../context/ThemeContext';
+import Providers from '../components/Providers';
 import './globals.css';
 
 export const metadata = {
@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       </head>
       <body>
-        <ThemeProvider>
+        <Providers>
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

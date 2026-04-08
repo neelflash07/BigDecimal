@@ -1,90 +1,122 @@
-import { Search, Info, TrendingUp, AlertTriangle, Lightbulb } from 'lucide-react';
+import { Search, List, PlayCircle, TrendingUp } from 'lucide-react';
 import { STOCKS } from '../../data/mockData';
 
 export default function HomeContent({ onSelectQuery }) {
-  const categories = [
-    { title: 'Understand', icon: Info, color: '#3b82f6', queries: ['Explain company', 'Revenue model'] },
-    { title: 'Analyze', icon: TrendingUp, color: '#10b981', queries: ['Financial strength', 'Profitability', 'Debt'] },
-    { title: 'Price', icon: TrendingUp, color: '#8b5cf6', queries: ['Trend', 'Volatility', 'Momentum'] },
-    { title: 'Risks', icon: AlertTriangle, color: '#ef4444', queries: ['Key risks', 'What can go wrong'] },
-    { title: 'Insights', icon: Lightbulb, color: '#f59e0b', queries: ['Why price moved', 'Price vs fundamentals'] },
-  ];
-
   return (
-    <div className="animate-slide-up" style={{ padding: '20px', paddingBottom: '80px' }}>
+    <div className="animate-fade-in" style={{ padding: '24px', paddingBottom: '90px' }}>
       
-      {/* Freemium Tracker */}
-      <div style={{ 
-        backgroundColor: 'var(--bg-secondary)', 
-        padding: '16px', 
-        borderRadius: '16px', 
-        marginBottom: '24px',
-        border: '1px solid var(--border-color)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <span style={{ fontSize: '0.9rem', fontWeight: '500' }}>Daily Free Queries</span>
-          <span style={{ fontSize: '0.9rem', color: 'var(--accent-primary)' }}>3 / 5</span>
-        </div>
-        <div style={{ width: '100%', height: '8px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '4px', overflow: 'hidden' }}>
-          <div style={{ width: '60%', height: '100%', backgroundColor: 'var(--accent-primary)' }}></div>
-        </div>
-        <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginTop: '8px', textAlign: 'right' }}>Upgrade for unlimited access</p>
-      </div>
-
-      {/* Search Input */}
+      {/* Search Input Simulation */}
       <div style={{ position: 'relative', marginBottom: '32px' }}>
-        <Search size={20} color="var(--text-secondary)" style={{ position: 'absolute', left: '16px', top: '16px' }} />
+        <Search size={20} color="var(--text-tertiary)" style={{ position: 'absolute', left: '16px', top: '16px' }} />
         <input 
           type="text" 
-          placeholder="Search bluechip (e.g., Reliance)" 
+          placeholder="Search equities..." 
           style={{
             width: '100%',
             padding: '16px 16px 16px 48px',
-            borderRadius: '16px',
+            borderRadius: 'var(--radius-lg)',
             border: '1px solid var(--border-color)',
             backgroundColor: 'var(--bg-secondary)',
             color: 'var(--text-primary)',
-            fontSize: '1rem',
+            fontSize: '15px',
             outline: 'none',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.02)'
           }}
         />
       </div>
 
-      {/* Grid Categories */}
-      <h3 style={{ fontSize: '1.2rem', marginBottom: '16px' }}>Explore Context</h3>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-        {categories.map((cat, idx) => (
-          <div key={idx} style={{ 
-             backgroundColor: 'var(--bg-secondary)',
-             padding: '16px',
-             borderRadius: '16px',
-             border: '1px solid var(--border-color)',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-              <cat.icon size={18} color={cat.color} />
-              <span style={{ fontWeight: '600' }}>{cat.title}</span>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {cat.queries.map(q => (
-                <button 
-                  key={q}
-                  onClick={() => onSelectQuery(q)}
-                  style={{
-                    textAlign: 'left',
-                    background: 'none',
-                    border: 'none',
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.9rem',
-                    cursor: 'pointer',
-                    padding: '4px 0',
-                    transition: 'color 0.2s'
-                  }}>
-                  {q}
-                </button>
-              ))}
-            </div>
+      {/* Quick Links */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '32px' }}>
+        <button style={{
+          padding: '24px 16px',
+          backgroundColor: 'var(--bg-secondary)',
+          border: '1px solid var(--border-color)',
+          borderRadius: 'var(--radius-lg)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          gap: '12px',
+          cursor: 'pointer'
+        }}>
+          <List size={24} color="var(--accent-primary)" />
+          <div style={{ textAlign: 'left' }}>
+            <span style={{ display: 'block', fontSize: '15px', fontWeight: '600', marginBottom: '4px' }}>List of Stocks</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>View all covered equities</span>
           </div>
+        </button>
+
+        <button style={{
+          padding: '24px 16px',
+          backgroundColor: 'var(--bg-secondary)',
+          border: '1px solid var(--border-color)',
+          borderRadius: 'var(--radius-lg)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          gap: '12px',
+          cursor: 'pointer'
+        }}>
+          <PlayCircle size={24} color="var(--success-color)" />
+          <div style={{ textAlign: 'left' }}>
+            <span style={{ display: 'block', fontSize: '15px', fontWeight: '600', marginBottom: '4px' }}>Lessons</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Continue your education</span>
+          </div>
+        </button>
+      </div>
+
+      {/* Progress Bar */}
+      <div style={{ 
+        backgroundColor: 'var(--bg-color)', 
+        padding: '20px', 
+        borderRadius: 'var(--radius-lg)', 
+        border: '1px solid var(--border-color)',
+        marginBottom: '32px'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <span style={{ fontSize: '14px', fontWeight: '600' }}>Learning Progress</span>
+          <span style={{ fontSize: '14px', color: 'var(--accent-primary)', fontWeight: '600' }}>Module 3 / 10</span>
+        </div>
+        <div style={{ width: '100%', height: '6px', backgroundColor: 'var(--bg-tertiary)', borderRadius: '3px', overflow: 'hidden' }}>
+          <div style={{ width: '30%', height: '100%', backgroundColor: 'var(--accent-primary)' }}></div>
+        </div>
+        <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '12px' }}>Resume: "Understanding Financial Health & Debt"</p>
+      </div>
+
+      {/* Popular Stocks Panel */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <h3 style={{ fontSize: '18px', fontWeight: '600' }}>Popular Equities</h3>
+        <span style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Swipe left</span>
+      </div>
+      
+      <div className="no-scrollbar" style={{ 
+        display: 'flex', 
+        gap: '16px', 
+        overflowX: 'auto', 
+        paddingBottom: '16px',
+        margin: '0 -24px',
+        padding: '0 24px 16px 24px'
+      }}>
+        {STOCKS.map((stock) => (
+          <button 
+            key={stock.symbol}
+            onClick={() => onSelectQuery(`Analyze ${stock.name}`)}
+            style={{
+              minWidth: '160px',
+              backgroundColor: 'var(--bg-secondary)',
+              border: '1px solid var(--border-color)',
+              borderRadius: 'var(--radius-md)',
+              padding: '16px',
+              textAlign: 'left',
+              cursor: 'pointer',
+              flexShrink: 0
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: '600' }}>{stock.symbol.split('.')[0]}</span>
+              <TrendingUp size={14} color={stock.trend === 'up' ? "var(--success-color)" : stock.trend === 'down' ? "var(--danger-color)" : "var(--text-tertiary)"} />
+            </div>
+            <div style={{ fontSize: '18px', fontWeight: '600', marginBottom: '4px' }}>₹{stock.price}</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>{stock.sector}</div>
+          </button>
         ))}
       </div>
     </div>
